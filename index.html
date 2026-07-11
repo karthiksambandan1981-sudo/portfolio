@@ -1,374 +1,539 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Karthik Sambandan | Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karthik Sambandan | Senior Data Engineer | AI Professional</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#F8FAFC;
+    color:#0F172A;
+    line-height:1.6;
+}
+
+header{
+    background:#0F172A;
+    color:white;
+    padding:20px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+header h2{
+    color:#14B8A6;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#14B8A6;
+}
+
+.hero{
+    background:linear-gradient(135deg,#0F172A,#2563EB);
+    color:white;
+    text-align:center;
+    padding:120px 30px;
+}
+
+.hero h1{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.hero h2{
+    font-weight:400;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:900px;
+    margin:auto;
+    font-size:20px;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:35px;
+    padding:14px 30px;
+    background:#14B8A6;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.btn:hover{
+    background:#0ea5a5;
+}
+
+section{
+    padding:80px 60px;
+}
+
+.section-title{
+    text-align:center;
+    font-size:34px;
+    margin-bottom:45px;
+}
+
+.about-text{
+    max-width:1000px;
+    margin:auto;
+    text-align:center;
+    font-size:18px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    padding:30px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h3{
+    color:#2563EB;
+    margin-bottom:15px;
+}
+
+#industry-ai,
+#personal-ai{
+    background:#ffffff;
+}
+
+#industry-ai .card,
+#personal-ai .card{
+    border-top:5px solid #14B8A6;
+}
+
+/* Timeline */
+
+#ai-timeline{
+    background:#EEF4FF;
+}
+
+.timeline{
+    position:relative;
+    max-width:1000px;
+    margin:auto;
+}
+
+.timeline::after{
+    content:'';
+    position:absolute;
+    width:6px;
+    background:linear-gradient(#2563EB,#14B8A6);
+    top:0;
+    bottom:0;
+    left:50%;
+    margin-left:-3px;
+}
+
+.timeline-container{
+    position:relative;
+    width:50%;
+    padding:20px 50px;
+}
+
+.timeline-container.left{
+    left:0;
+}
+
+.timeline-container.right{
+    left:50%;
+}
+
+.timeline-content{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.12);
+}
+
+.timeline-content h3{
+    color:#2563EB;
+}
+
+.timeline-container::after{
+    content:'';
+    position:absolute;
+    width:25px;
+    height:25px;
+    right:-14px;
+    background:#14B8A6;
+    border:5px solid white;
+    top:35px;
+    border-radius:50%;
+    z-index:1;
+}
+
+.timeline-container.right::after{
+    left:-14px;
+}
+
+.contact{
+    text-align:center;
+    font-size:18px;
+}
+
+.contact p{
+    margin-bottom:15px;
+}
+
+footer{
+    background:#0F172A;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+@media(max-width:768px){
+
+    header{
+        flex-direction:column;
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #F8FAFC;
-      color: #0F172A;
-      line-height: 1.6;
-    }
-
-    header {
-      background: #0F172A;
-      color: white;
-      padding: 20px 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 25px;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: #14B8A6;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #0F172A, #2563EB);
-      color: white;
-      text-align: center;
-      padding: 120px 30px;
-    }
-
-    .hero h1 {
-      font-size: 52px;
-      margin-bottom: 15px;
-    }
-
-    .hero h2 {
-      font-size: 26px;
-      font-weight: normal;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 35px;
-      background: #14B8A6;
-      color: white;
-      text-decoration: none;
-      padding: 14px 30px;
-      border-radius: 8px;
-      font-weight: bold;
-    }
-
-    .btn:hover {
-      background: #0d9488;
-    }
-
-    section {
-      padding: 80px 60px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 34px;
-      color: #0F172A;
-    }
-
-    .about-text {
-      max-width: 1000px;
-      margin: auto;
-      text-align: center;
-      font-size: 18px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 12px;
-      padding: 25px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-    }
-
-    .card h3 {
-      color: #2563EB;
-      margin-bottom: 15px;
-    }
-
-    #ai-timeline {
-      background: #EEF4FF;
-    }
-
-    #ai-timeline .card {
-      border-top: 5px solid #2563EB;
-    }
-
-    .contact {
-      text-align: center;
-      font-size: 18px;
-    }
-
-    .contact p {
-      margin-bottom: 15px;
-    }
-
-    footer {
-      background: #0F172A;
-      color: white;
-      text-align: center;
-      padding: 30px;
-    }
-
-    @media(max-width:768px){
-      header{
-        flex-direction: column;
-      }
-
-      nav{
+    nav{
         margin-top:15px;
-      }
+    }
 
-      nav a{
+    nav a{
         display:inline-block;
         margin:10px;
-      }
-
-      .hero h1{
-        font-size:38px;
-      }
-
-      .hero h2{
-        font-size:20px;
-      }
-
-      section{
-        padding:60px 25px;
-      }
     }
-  </style>
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    section{
+        padding:60px 25px;
+    }
+
+    .timeline::after{
+        left:30px;
+    }
+
+    .timeline-container{
+        width:100%;
+        left:0 !important;
+        padding-left:70px;
+        padding-right:20px;
+    }
+
+    .timeline-container::after{
+        left:18px;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h2>Karthik Sambandan</h2>
+<h2>Karthik Sambandan</h2>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#ai-timeline">AI Evolution</a>
-    <a href="#speaking">Speaking</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<nav>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#ai-timeline">AI Evolution</a>
+<a href="#industry-ai">Industry AI</a>
+<a href="#personal-ai">AI Co-Pilot</a>
+<a href="#speaking">Speaking</a>
+<a href="#contact">Contact</a>
+</nav>
 </header>
 
 <section class="hero">
-  <h1>Karthik Sambandan</h1>
+<h1>Karthik Sambandan</h1>
 
-  <h2>
-    Senior Data Engineer |
-    Data Analytics & AI Professional |
-    TEDx Speaker
-  </h2>
+<h2>
+Senior Data Engineer |
+Data Analytics & AI Professional |
+TEDx Speaker
+</h2>
 
-  <p>
-    Transforming data into intelligent business solutions through analytics,
-    engineering, cloud technologies, and artificial intelligence.
-  </p>
+<p>
+Transforming data into intelligent business solutions through analytics,
+engineering, cloud technologies, and artificial intelligence.
+</p>
 
-  <a class="btn" href="#projects">View My Projects</a>
+<a class="btn" href="#projects">View My Projects</a>
 </section>
 
 <section id="about">
-  <h2 class="section-title">About Me</h2>
+<h2 class="section-title">About Me</h2>
 
-  <p class="about-text">
-    I am a Senior Data Engineer and Analytics professional with nearly two decades
-    of experience designing and delivering enterprise data solutions.
-    My expertise spans Data Engineering, Data Modeling, Data Warehousing,
-    Cloud Technologies, Business Intelligence, and Artificial Intelligence.
-    I have successfully helped organizations transform raw data into actionable
-    insights that drive strategic decision-making and business growth across
-    Healthcare, Supply Chain, Banking, Retail, and Insurance industries.
-  </p>
+<p class="about-text">
+I am a Senior Data Engineer and Analytics professional with nearly two decades of
+experience designing and delivering enterprise data solutions. My expertise spans
+Data Engineering, Data Modeling, Data Warehousing, Cloud Technologies,
+Business Intelligence, and Artificial Intelligence. I have successfully helped
+organizations transform raw data into actionable insights that drive strategic
+decision-making and business growth across Healthcare, Supply Chain,
+Banking, Retail, and Insurance industries.
+</p>
 </section>
 
 <section id="skills">
-  <h2 class="section-title">Technical Skills</h2>
+<h2 class="section-title">Technical Skills</h2>
 
-  <div class="cards">
+<div class="cards">
 
-    <div class="card">
-      <h3>Data Engineering</h3>
-      <p>ETL, ELT, Data Warehousing, Data Modeling, Data Migration.</p>
-    </div>
+<div class="card">
+<h3>Data Engineering</h3>
+<p>ETL, ELT, Data Warehousing, Data Modeling, Data Migration.</p>
+</div>
 
-    <div class="card">
-      <h3>Cloud Platforms</h3>
-      <p>Microsoft Azure, AWS, Databricks, Snowflake.</p>
-    </div>
+<div class="card">
+<h3>Cloud Platforms</h3>
+<p>Microsoft Azure, AWS, Databricks, Snowflake.</p>
+</div>
 
-    <div class="card">
-      <h3>Analytics & Visualization</h3>
-      <p>Power BI, Tableau, Dashboard Development, Business Intelligence.</p>
-    </div>
+<div class="card">
+<h3>Analytics & Visualization</h3>
+<p>Power BI, Tableau, Dashboard Development, Business Intelligence.</p>
+</div>
 
-    <div class="card">
-      <h3>Artificial Intelligence</h3>
-      <p>Predictive Analytics, Machine Learning, Generative AI, Data Science.</p>
-    </div>
+<div class="card">
+<h3>Artificial Intelligence</h3>
+<p>Predictive Analytics, Machine Learning, Generative AI, Data Science.</p>
+</div>
 
-  </div>
+</div>
 </section>
 
 <section id="projects">
-  <h2 class="section-title">Featured Projects</h2>
+<h2 class="section-title">Featured Projects</h2>
 
-  <div class="cards">
+<div class="cards">
 
-    <div class="card">
-      <h3>Healthcare Data Modernization</h3>
-      <p>
-        Implemented cloud-based healthcare analytics and reporting platforms,
-        improving accessibility and decision-making.
-      </p>
-    </div>
+<div class="card">
+<h3>Healthcare Data Modernization</h3>
+<p>Implemented cloud-based healthcare analytics and reporting platforms.</p>
+</div>
 
-    <div class="card">
-      <h3>Supply Chain Analytics</h3>
-      <p>
-        Built analytics dashboards to improve inventory visibility,
-        demand forecasting, and operational efficiency.
-      </p>
-    </div>
+<div class="card">
+<h3>Supply Chain Analytics Solution</h3>
+<p>Developed analytics dashboards that improved inventory visibility and demand forecasting.</p>
+</div>
 
-    <div class="card">
-      <h3>AI-Powered Data Quality Framework</h3>
-      <p>
-        Developed automated solutions to improve data quality,
-        consistency, and governance across enterprise systems.
-      </p>
-    </div>
+<div class="card">
+<h3>AI-Powered Data Quality Framework</h3>
+<p>Built automated solutions to improve data quality and governance.</p>
+</div>
 
-  </div>
+</div>
 </section>
 
 <section id="ai-timeline">
-  <h2 class="section-title">
-    Evolution of Artificial Intelligence Across Industries
-  </h2>
+<h2 class="section-title">Evolution of Artificial Intelligence Across Industries</h2>
 
-  <div class="cards">
+<div class="timeline">
 
-    <div class="card">
-      <h3>1950s - 1960s</h3>
-      <p><strong>Birth of AI and Symbolic Reasoning</strong></p>
-      <p>Academia and Defense</p>
-    </div>
+<div class="timeline-container left">
+<div class="timeline-content">
+<h3>1950s - 1960s</h3>
+<p><strong>Birth of AI and Symbolic Reasoning</strong></p>
+<p>Academic and defense research introduced intelligent computing concepts.</p>
+</div>
+</div>
 
-    <div class="card">
-      <h3>1970s - 1980s</h3>
-      <p><strong>Expert Systems</strong></p>
-      <p>Healthcare and Manufacturing</p>
-    </div>
+<div class="timeline-container right">
+<div class="timeline-content">
+<h3>1970s - 1980s</h3>
+<p><strong>Expert Systems</strong></p>
+<p>Healthcare and manufacturing adopted decision support systems.</p>
+</div>
+</div>
 
-    <div class="card">
-      <h3>1990s</h3>
-      <p><strong>Machine Learning</strong></p>
-      <p>Banking and Retail</p>
-    </div>
+<div class="timeline-container left">
+<div class="timeline-content">
+<h3>1990s</h3>
+<p><strong>Machine Learning</strong></p>
+<p>Banking and retail leveraged predictive analytics and fraud detection.</p>
+</div>
+</div>
 
-    <div class="card">
-      <h3>2000s</h3>
-      <p><strong>Big Data and Analytics</strong></p>
-      <p>E-Commerce and Telecommunications</p>
-    </div>
+<div class="timeline-container right">
+<div class="timeline-content">
+<h3>2000s</h3>
+<p><strong>Big Data and Analytics</strong></p>
+<p>E-commerce transformed customer experiences using data insights.</p>
+</div>
+</div>
 
-    <div class="card">
-      <h3>2010 - 2015</h3>
-      <p><strong>Deep Learning Revolution</strong></p>
-      <p>Healthcare and Automotive</p>
-    </div>
+<div class="timeline-container left">
+<div class="timeline-content">
+<h3>2010 - 2015</h3>
+<p><strong>Deep Learning Revolution</strong></p>
+<p>Medical imaging and autonomous driving accelerated AI adoption.</p>
+</div>
+</div>
 
-    <div class="card">
-      <h3>2015 - 2020</h3>
-      <p><strong>Cloud AI and Intelligent Automation</strong></p>
-      <p>Finance, Supply Chain and Manufacturing</p>
-    </div>
+<div class="timeline-container right">
+<div class="timeline-content">
+<h3>2015 - 2020</h3>
+<p><strong>Cloud AI and Intelligent Automation</strong></p>
+<p>Organizations embraced predictive maintenance and automation.</p>
+</div>
+</div>
 
-    <div class="card">
-      <h3>2020 - 2023</h3>
-      <p><strong>Generative AI and Large Language Models</strong></p>
-      <p>Education, IT, Healthcare and Marketing</p>
-    </div>
+<div class="timeline-container left">
+<div class="timeline-content">
+<h3>2020 - 2023</h3>
+<p><strong>Generative AI and Large Language Models</strong></p>
+<p>AI assistants transformed software engineering and content generation.</p>
+</div>
+</div>
 
-    <div class="card">
-      <h3>2024 - Present</h3>
-      <p><strong>Agentic AI and Autonomous Systems</strong></p>
-      <p>All Industries</p>
-    </div>
+<div class="timeline-container right">
+<div class="timeline-content">
+<h3>2024 - Present</h3>
+<p><strong>Agentic AI and Autonomous Systems</strong></p>
+<p>AI agents are enabling intelligent workflow automation.</p>
+</div>
+</div>
 
-    <div class="card">
-      <h3>2030 and Beyond</h3>
-      <p><strong>Artificial General Intelligence (AGI)</strong></p>
-      <p>Human-AI Collaboration and Autonomous Enterprises</p>
-    </div>
+<div class="timeline-container left">
+<div class="timeline-content">
+<h3>2030 and Beyond</h3>
+<p><strong>Artificial General Intelligence (AGI)</strong></p>
+<p>The future of autonomous enterprises and human-AI collaboration.</p>
+</div>
+</div>
 
-  </div>
+</div>
+</section>
+
+<section id="industry-ai">
+<h2 class="section-title">How AI is Transforming Industries</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>AI in Supply Chain Management</h3>
+<p>
+Artificial Intelligence is automating procurement and bidding processes by
+analyzing supplier proposals, evaluating pricing patterns, and identifying
+optimal sourcing opportunities.
+</p>
+
+<p>
+AI-generated recommendations are reviewed by commodity managers and buyers,
+enabling faster decision-making and allowing teams to focus on strategic
+business initiatives rather than repetitive administrative tasks.
+</p>
+</div>
+
+<div class="card">
+<h3>AI in Healthcare Analytics</h3>
+<p>
+Artificial Intelligence is streamlining the collection and integration of
+clinical readings and patient observations into enterprise data marts.
+</p>
+
+<p>
+AI-driven reporting and analytics provide physicians with timely insights,
+helping them evaluate patient conditions and make more informed treatment
+decisions while improving healthcare efficiency.
+</p>
+</div>
+
+</div>
+</section>
+
+<section id="personal-ai">
+<h2 class="section-title">AI as My Professional Co-Pilot</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Continuous Learning</h3>
+<ul>
+<li>Generate code snippets in unfamiliar technologies.</li>
+<li>Learn new cloud and AI frameworks faster.</li>
+<li>Analyze and debug complex code efficiently.</li>
+<li>Accelerate proof-of-concepts and innovation.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Productivity & Innovation</h3>
+<ul>
+<li>Generate SQL queries and transformation logic.</li>
+<li>Create technical documentation and presentations.</li>
+<li>Automate repetitive coding tasks.</li>
+<li>Convert business requirements into technical solutions faster.</li>
+<li>Reduce development and research time.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Professional Philosophy</h3>
+<p>
+I view Artificial Intelligence as an intelligent co-pilot that augments my
+capabilities, bridges knowledge gaps, and empowers me to deliver innovative
+solutions with greater speed, quality, and business value.
+</p>
+</div>
+
+</div>
 </section>
 
 <section id="speaking">
-  <h2 class="section-title">Speaking & Leadership</h2>
+<h2 class="section-title">Speaking & Leadership</h2>
 
-  <p class="about-text">
-    TEDx Speaker, Technology Mentor, and Data Leader passionate about sharing
-    knowledge on Data Engineering, Artificial Intelligence, Cloud Transformation,
-    and helping organizations leverage data to create measurable business value.
-  </p>
+<p class="about-text">
+TEDx Speaker, Technology Mentor, and Data Leader passionate about sharing
+knowledge on Data Engineering, Artificial Intelligence, Cloud Transformation,
+and helping organizations become truly data-driven enterprises.
+</p>
 </section>
 
 <section id="contact">
-  <h2 class="section-title">Contact</h2>
+<h2 class="section-title">Contact</h2>
 
-  <div class="contact">
-    <p><strong>Email:</strong> your-email@example.com</p>
-    <p><strong>LinkedIn:</strong> https://linkedin.com/in/your-profile</p>
-    <p><strong>GitHub:</strong> https://github.com/your-profile</p>
-    <p><strong>Location:</strong> Chicago, Illinois, USA</p>
-  </div>
+<div class="contact">
+<p><strong>Email:</strong> your-email@example.com</p>
+<p><strong>LinkedIn:</strong> https://linkedin.com/in/your-profile</p>
+<p><strong>GitHub:</strong> https://github.com/your-profile</p>
+<p><strong>Location:</strong> Chicago, Illinois, USA</p>
+</div>
 </section>
 
 <footer>
-  © 2026 Karthik Sambandan | Senior Data Engineer | Data Analytics & AI Professional
+© 2026 Karthik Sambandan | Senior Data Engineer | Data Analytics & AI Professional
 </footer>
 
 </body>
