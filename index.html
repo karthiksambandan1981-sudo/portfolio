@@ -1,540 +1,1174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karthik Sambandan | Senior Data Engineer | AI Professional</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Karthik Sambandan's professional portfolio featuring data engineering, analytics, AI, an AI evolution timeline, project artifacts, and an AI speaker recommendation chatbot."
+  />
+  <title>Karthik Sambandan | Data Engineering, Analytics & AI Portfolio</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-}
+  <!-- Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
 
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#F8FAFC;
-    color:#0F172A;
-    line-height:1.6;
-}
-
-header{
-    background:#0F172A;
-    color:white;
-    padding:20px 50px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-header h2{
-    color:#14B8A6;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:20px;
-    font-weight:bold;
-}
-
-nav a:hover{
-    color:#14B8A6;
-}
-
-.hero{
-    background:linear-gradient(135deg,#0F172A,#2563EB);
-    color:white;
-    text-align:center;
-    padding:120px 30px;
-}
-
-.hero h1{
-    font-size:55px;
-    margin-bottom:15px;
-}
-
-.hero h2{
-    font-weight:400;
-    margin-bottom:20px;
-}
-
-.hero p{
-    max-width:900px;
-    margin:auto;
-    font-size:20px;
-}
-
-.btn{
-    display:inline-block;
-    margin-top:35px;
-    padding:14px 30px;
-    background:#14B8A6;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
-    font-weight:bold;
-}
-
-.btn:hover{
-    background:#0ea5a5;
-}
-
-section{
-    padding:80px 60px;
-}
-
-.section-title{
-    text-align:center;
-    font-size:34px;
-    margin-bottom:45px;
-}
-
-.about-text{
-    max-width:1000px;
-    margin:auto;
-    text-align:center;
-    font-size:18px;
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:white;
-    border-radius:15px;
-    padding:30px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.1);
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-}
-
-.card h3{
-    color:#2563EB;
-    margin-bottom:15px;
-}
-
-#industry-ai,
-#personal-ai{
-    background:#ffffff;
-}
-
-#industry-ai .card,
-#personal-ai .card{
-    border-top:5px solid #14B8A6;
-}
-
-/* Timeline */
-
-#ai-timeline{
-    background:#EEF4FF;
-}
-
-.timeline{
-    position:relative;
-    max-width:1000px;
-    margin:auto;
-}
-
-.timeline::after{
-    content:'';
-    position:absolute;
-    width:6px;
-    background:linear-gradient(#2563EB,#14B8A6);
-    top:0;
-    bottom:0;
-    left:50%;
-    margin-left:-3px;
-}
-
-.timeline-container{
-    position:relative;
-    width:50%;
-    padding:20px 50px;
-}
-
-.timeline-container.left{
-    left:0;
-}
-
-.timeline-container.right{
-    left:50%;
-}
-
-.timeline-content{
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.12);
-}
-
-.timeline-content h3{
-    color:#2563EB;
-}
-
-.timeline-container::after{
-    content:'';
-    position:absolute;
-    width:25px;
-    height:25px;
-    right:-14px;
-    background:#14B8A6;
-    border:5px solid white;
-    top:35px;
-    border-radius:50%;
-    z-index:1;
-}
-
-.timeline-container.right::after{
-    left:-14px;
-}
-
-.contact{
-    text-align:center;
-    font-size:18px;
-}
-
-.contact p{
-    margin-bottom:15px;
-}
-
-footer{
-    background:#0F172A;
-    color:white;
-    text-align:center;
-    padding:30px;
-}
-
-@media(max-width:768px){
-
-    header{
-        flex-direction:column;
+  <style>
+    :root {
+      --navy: #0f172a;
+      --navy-2: #172554;
+      --blue: #2563eb;
+      --blue-light: #60a5fa;
+      --teal: #14b8a6;
+      --purple: #8b5cf6;
+      --pink: #d946ef;
+      --orange: #f59e0b;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #dbeafe;
+      --shadow: 0 14px 35px rgba(15, 23, 42, 0.10);
+      --radius: 18px;
     }
 
-    nav{
-        margin-top:15px;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    nav a{
-        display:inline-block;
-        margin:10px;
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 82px;
     }
 
-    .hero h1{
-        font-size:38px;
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
     }
 
-    section{
-        padding:60px 25px;
+    img {
+      max-width: 100%;
+      display: block;
     }
 
-    .timeline::after{
-        left:30px;
+    a {
+      color: inherit;
     }
 
-    .timeline-container{
-        width:100%;
-        left:0 !important;
-        padding-left:70px;
-        padding-right:20px;
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin-inline: auto;
     }
 
-    .timeline-container::after{
-        left:18px;
+    .section {
+      padding: 78px 0;
     }
-}
-</style>
+
+    .section-alt {
+      background: #eef5ff;
+    }
+
+    .section-heading {
+      max-width: 780px;
+      margin-bottom: 34px;
+    }
+
+    .section-heading .kicker {
+      display: inline-block;
+      color: var(--blue);
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 23, 42, 0.96);
+      color: white;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(14px);
+    }
+
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: linear-gradient(135deg, var(--teal), var(--blue), var(--purple));
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 18px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.93rem;
+      font-weight: 700;
+    }
+
+    nav a:hover {
+      color: #93c5fd;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 92px 0;
+      background:
+        radial-gradient(circle at 84% 25%, rgba(139, 92, 246, 0.32), transparent 28%),
+        radial-gradient(circle at 12% 16%, rgba(20, 184, 166, 0.22), transparent 25%),
+        linear-gradient(135deg, var(--navy), var(--blue));
+      color: white;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.45fr 0.55fr;
+      align-items: center;
+      gap: 56px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 14px;
+      border: 1px solid rgba(255,255,255,0.24);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      color: #bfdbfe;
+      font-size: 0.88rem;
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 0.98;
+      letter-spacing: -2px;
+      margin-bottom: 16px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+      font-weight: 500;
+      color: #dbeafe;
+      margin-bottom: 12px;
+    }
+
+    .tagline {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #5eead4;
+      margin-bottom: 16px;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      color: #e2e8f0;
+      font-size: 1.08rem;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: 0 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 800;
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .primary {
+      background: var(--teal);
+      color: white;
+      box-shadow: 0 12px 26px rgba(20, 184, 166, 0.28);
+    }
+
+    .secondary {
+      background: white;
+      color: var(--navy);
+    }
+
+    .profile {
+      aspect-ratio: 1;
+      width: min(300px, 100%);
+      margin-inline: auto;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 30px;
+      border: 8px solid rgba(255,255,255,0.18);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.96), rgba(219,234,254,0.96));
+      color: var(--blue);
+      font-size: 1.08rem;
+      font-weight: 800;
+      box-shadow: 0 24px 55px rgba(0,0,0,0.25);
+    }
+
+    .profile i {
+      font-size: 4.3rem;
+      margin-bottom: 12px;
+    }
+
+    /* Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--surface);
+      padding: 26px;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      border-radius: 13px;
+      color: white;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      font-size: 1.25rem;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      margin-top: 30px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 28px;
+      top: 10px;
+      bottom: 10px;
+      width: 4px;
+      border-radius: 10px;
+      background: linear-gradient(var(--teal), var(--blue), var(--purple), var(--pink));
+    }
+
+    .timeline-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 22px;
+      margin-bottom: 24px;
+    }
+
+    .timeline-dot {
+      position: relative;
+      z-index: 2;
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border: 5px solid #eef5ff;
+      border-radius: 50%;
+      color: white;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-align: center;
+      line-height: 1.05;
+    }
+
+    .timeline-content {
+      padding: 22px 24px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .timeline-content h3 {
+      margin-bottom: 6px;
+      color: var(--navy-2);
+    }
+
+    .timeline-content p {
+      color: var(--muted);
+    }
+
+    .timeline-meta {
+      margin-top: 10px;
+      font-size: 0.93rem;
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    /* Artifact gallery */
+    .artifact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 26px;
+    }
+
+    .artifact-card {
+      overflow: hidden;
+      border: 1px solid #dbeafe;
+      border-radius: 22px;
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .artifact-image {
+      overflow: hidden;
+      background: #071022;
+    }
+
+    .artifact-image img {
+      width: 100%;
+      height: 620px;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.35s ease;
+    }
+
+    .artifact-card:hover img {
+      transform: scale(1.015);
+    }
+
+    .artifact-copy {
+      padding: 24px;
+    }
+
+    .artifact-label {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      color: #5b21b6;
+      background: #ede9fe;
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+    }
+
+    .artifact-copy h3 {
+      margin-bottom: 8px;
+      font-size: 1.35rem;
+    }
+
+    .artifact-copy p {
+      color: var(--muted);
+    }
+
+    /* Chatbot */
+    .chatbot-box {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 32px;
+      padding: clamp(30px, 6vw, 64px);
+      border-radius: 28px;
+      color: white;
+      background:
+        radial-gradient(circle at 88% 30%, rgba(20,184,166,0.30), transparent 28%),
+        linear-gradient(135deg, var(--navy), #312e81, #6d28d9);
+      box-shadow: 0 24px 55px rgba(49, 46, 129, 0.25);
+    }
+
+    .chatbot-box h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .chatbot-box p {
+      max-width: 740px;
+      color: #e2e8f0;
+      margin-bottom: 25px;
+    }
+
+    .bot-icon-large {
+      width: 170px;
+      height: 170px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 38px;
+      background: rgba(255,255,255,0.08);
+      font-size: 5rem;
+    }
+
+    .floating-chat {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 1200;
+      width: 68px;
+      height: 68px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: white;
+      background: linear-gradient(135deg, var(--teal), var(--blue), var(--purple));
+      border: 2px solid rgba(255,255,255,0.65);
+      box-shadow: 0 16px 36px rgba(37, 99, 235, 0.35);
+      text-decoration: none;
+      font-size: 1.7rem;
+    }
+
+    .floating-chat::after {
+      content: "Open AI Speaker Bot";
+      position: absolute;
+      right: 82px;
+      width: max-content;
+      padding: 8px 11px;
+      border-radius: 8px;
+      background: var(--navy);
+      color: white;
+      font-size: 0.78rem;
+      font-weight: 800;
+      opacity: 0;
+      transform: translateX(8px);
+      transition: 0.2s ease;
+      pointer-events: none;
+    }
+
+    .floating-chat:hover::after {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Contact */
+    .contact-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+    }
+
+    .contact-list i {
+      width: 26px;
+      color: var(--blue);
+    }
+
+    footer {
+      background: var(--navy);
+      color: white;
+      text-align: center;
+      padding: 32px 16px;
+    }
+
+
+    .assessment-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 26px;
+    }
+
+    .assessment-card {
+      position: relative;
+      overflow: hidden;
+      padding: 32px;
+      border-radius: 22px;
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .assessment-card::after {
+      content: "";
+      position: absolute;
+      right: -60px;
+      bottom: -80px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.10);
+    }
+
+    .assessment-card.strengths {
+      background: linear-gradient(135deg, #0f766e, #2563eb);
+    }
+
+    .assessment-card.growth {
+      background: linear-gradient(135deg, #6d28d9, #db2777);
+    }
+
+    .assessment-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.16);
+      font-size: 1.35rem;
+    }
+
+    .assessment-card h3 {
+      position: relative;
+      z-index: 1;
+      font-size: 1.5rem;
+      margin-bottom: 14px;
+    }
+
+    .assessment-card ul {
+      position: relative;
+      z-index: 1;
+      padding-left: 20px;
+    }
+
+    .assessment-card li + li {
+      margin-top: 14px;
+    }
+
+    .card,
+    .artifact-card,
+    .timeline-content,
+    .assessment-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover,
+    .artifact-card:hover,
+    .timeline-content:hover,
+    .assessment-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 50px rgba(15, 23, 42, 0.18);
+    }
+
+    .floating-chat {
+      animation: floatBot 3s ease-in-out infinite;
+    }
+
+    @keyframes floatBot {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .chatbot-box {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-copy,
+      .buttons {
+        margin-inline: auto;
+        justify-content: center;
+      }
+
+      .profile {
+        width: 240px;
+      }
+
+      .artifact-grid,
+      .assessment-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .artifact-image img {
+        height: auto;
+      }
+
+      .bot-icon-large {
+        margin-inline: auto;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .header-inner {
+        padding: 12px 0;
+        align-items: flex-start;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        padding: 72px 0;
+      }
+
+      .buttons .btn {
+        width: 100%;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 </head>
 
 <body>
+  <header>
+    <div class="container header-inner">
+      <a class="brand" href="#home">
+        <span class="brand-icon"><i class="fa-solid fa-database"></i></span>
+        <span>Karthik Sambandan</span>
+      </a>
 
-<header>
-<h2>Karthik Sambandan</h2>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#timeline">AI Timeline</a>
+        <a href="#projects">Projects</a>
+        <a href="#assessment">Assessment</a>
+        <a href="#artifacts">Artifacts</a>
+        <a href="#chatbot">Chatbot</a>
+        <a href="#speaking">Speaking</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<nav>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#ai-timeline">AI Evolution</a>
-<a href="#industry-ai">Industry AI</a>
-<a href="#personal-ai">AI Co-Pilot</a>
-<a href="#speaking">Speaking</a>
-<a href="#contact">Contact</a>
-</nav>
-</header>
+  <main>
+    <section class="hero" id="home" data-aos="fade-up">
+      <div class="container hero-grid">
+        <div>
+          <span class="hero-badge">
+            <i class="fa-solid fa-chart-line"></i>
+            Data Engineering • Analytics • Artificial Intelligence
+          </span>
 
-<section class="hero">
-<h1>Karthik Sambandan</h1>
+          <h1>Karthik Sambandan</h1>
+          <h2>Senior Data Engineer | Data Analytics & AI Professional | TEDx Speaker</h2>
+          <p class="tagline">Engineering Data. Enabling Intelligence.</p>
 
-<h2>
-Senior Data Engineer |
-Data Analytics & AI Professional |
-TEDx Speaker
-</h2>
+          <p class="hero-copy">
+            Transforming complex data into intelligent business solutions through
+            analytics, cloud technologies, artificial intelligence, and meaningful
+            communication.
+          </p>
 
-<p>
-Transforming data into intelligent business solutions through analytics,
-engineering, cloud technologies, and artificial intelligence.
-</p>
+          <div class="buttons">
+            <!-- Replace # with your resume file path, such as assets/Karthik_Resume.pdf -->
+            <a class="btn primary" href="#">
+              <i class="fa-solid fa-file-arrow-down"></i>
+              Download Resume
+            </a>
 
-<a class="btn" href="#projects">View My Projects</a>
-</section>
+            <a class="btn secondary" href="#artifacts">
+              <i class="fa-solid fa-folder-open"></i>
+              View Project Artifacts
+            </a>
+          </div>
+        </div>
 
-<section id="about">
-<h2 class="section-title">About Me</h2>
+        <div class="profile" aria-label="Professional photograph placeholder">
+          <div>
+            <i class="fa-solid fa-user-tie"></i>
+            <div>Add Your Professional Photo Here</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<p class="about-text">
-I am a Senior Data Engineer and Analytics professional with nearly two decades of
-experience designing and delivering enterprise data solutions. My expertise spans
-Data Engineering, Data Modeling, Data Warehousing, Cloud Technologies,
-Business Intelligence, and Artificial Intelligence. I have successfully helped
-organizations transform raw data into actionable insights that drive strategic
-decision-making and business growth across Healthcare, Supply Chain,
-Banking, Retail, and Insurance industries.
-</p>
-</section>
+    <section class="section" id="about" data-aos="fade-up">
+      <div class="container">
+        <div class="section-heading">
+          <span class="kicker">Professional Profile</span>
+          <h2>About Me</h2>
+          <p>
+            I am a Senior Data Engineer and analytics professional with nearly two
+            decades of experience delivering enterprise data solutions.
+          </p>
+        </div>
 
-<section id="skills">
-<h2 class="section-title">Technical Skills</h2>
+        <div class="card">
+          <p>
+            My experience spans healthcare, supply chain, banking, retail, insurance,
+            and telecommunications. I specialize in data engineering, cloud
+            transformation, data modeling, analytics, business intelligence, and
+            artificial intelligence. My goal is to connect technology, business
+            strategy, and human-centered communication to create measurable value.
+          </p>
+        </div>
+      </div>
+    </section>
 
-<div class="cards">
+    <section class="section section-alt" id="skills" data-aos="fade-up">
+      <div class="container">
+        <div class="section-heading">
+          <span class="kicker">Capabilities</span>
+          <h2>Core Expertise</h2>
+        </div>
 
-<div class="card">
-<h3>Data Engineering</h3>
-<p>ETL, ELT, Data Warehousing, Data Modeling, Data Migration.</p>
-</div>
+        <div class="cards">
+          <article class="card" data-aos="zoom-in-up">
+            <div class="card-icon"><i class="fa-solid fa-gears"></i></div>
+            <h3>Data Engineering</h3>
+            <p>ETL, ELT, data warehousing, data integration, and data modeling.</p>
+          </article>
 
-<div class="card">
-<h3>Cloud Platforms</h3>
-<p>Microsoft Azure, AWS, Databricks, Snowflake.</p>
-</div>
+          <article class="card" data-aos="zoom-in-up">
+            <div class="card-icon"><i class="fa-solid fa-cloud"></i></div>
+            <h3>Cloud Platforms</h3>
+            <p>Azure, AWS, Databricks, Snowflake, and cloud modernization.</p>
+          </article>
 
-<div class="card">
-<h3>Analytics & Visualization</h3>
-<p>Power BI, Tableau, Dashboard Development, Business Intelligence.</p>
-</div>
+          <article class="card" data-aos="zoom-in-up">
+            <div class="card-icon"><i class="fa-solid fa-chart-pie"></i></div>
+            <h3>Analytics</h3>
+            <p>Power BI, Tableau, reporting, dashboards, and business intelligence.</p>
+          </article>
 
-<div class="card">
-<h3>Artificial Intelligence</h3>
-<p>Predictive Analytics, Machine Learning, Generative AI, Data Science.</p>
-</div>
+          <article class="card" data-aos="zoom-in-up">
+            <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+            <h3>Artificial Intelligence</h3>
+            <p>Predictive analytics, generative AI, machine learning, and data science.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-</div>
-</section>
+    <section class="section" id="timeline" data-aos="fade-up">
+      <div class="container">
+        <div class="section-heading">
+          <span class="kicker">Learning Artifact</span>
+          <h2>Evolution of Artificial Intelligence</h2>
+          <p>
+            This timeline summarizes the major stages in AI development and shows how
+            each stage influenced industries and practical business applications.
+          </p>
+        </div>
 
-<section id="projects">
-<h2 class="section-title">Featured Projects</h2>
+        <div class="timeline">
+          <article class="timeline-item" data-aos="fade-left">
+            <div class="timeline-dot">1950s–60s</div>
+            <div class="timeline-content">
+              <h3>Birth of AI and Symbolic Reasoning</h3>
+              <p>
+                Early AI focused on logic, rule-based reasoning, mathematical problem
+                solving, and the idea that machines could simulate human intelligence.
+              </p>
+              <div class="timeline-meta">Industries: Academia and Defense</div>
+            </div>
+          </article>
 
-<div class="cards">
+          <article class="timeline-item" data-aos="fade-left">
+            <div class="timeline-dot">1970s–80s</div>
+            <div class="timeline-content">
+              <h3>Expert Systems</h3>
+              <p>
+                Expert systems captured specialist knowledge in rules to support
+                diagnosis, troubleshooting, and operational decisions.
+              </p>
+              <div class="timeline-meta">Industries: Healthcare and Manufacturing</div>
+            </div>
+          </article>
 
-<div class="card">
-<h3>Healthcare Data Modernization</h3>
-<p>Implemented cloud-based healthcare analytics and reporting platforms.</p>
-</div>
+          <article class="timeline-item" data-aos="fade-left">
+            <div class="timeline-dot">1990s</div>
+            <div class="timeline-content">
+              <h3>Machine Learning Emerges</h3>
+              <p>
+                Organizations began using algorithms that learned patterns from data
+                rather than relying only on manually programmed rules.
+              </p>
+              <div class="timeline-meta">Applications: Fraud detection and credit scoring</div>
+            </div>
+          </article>
 
-<div class="card">
-<h3>Supply Chain Analytics Solution</h3>
-<p>Developed analytics dashboards that improved inventory visibility and demand forecasting.</p>
-</div>
+          <article class="timeline-item" data-aos="fade-left">
+            <div class="timeline-dot">2000s</div>
+            <div class="timeline-content">
+              <h3>Big Data and Analytics</h3>
+              <p>
+                Larger datasets, distributed computing, and improved storage enabled
+                customer analytics, personalization, and recommendation engines.
+              </p>
+              <div class="timeline-meta">Industries: E-commerce and Telecommunications</div>
+            </div>
+          </article>
 
-<div class="card">
-<h3>AI-Powered Data Quality Framework</h3>
-<p>Built automated solutions to improve data quality and governance.</p>
-</div>
+          <article class="timeline-item" data-aos="fade-left">
+            <div class="timeline-dot">2010–15</div>
+            <div class="timeline-content">
+              <h3>Deep Learning Revolution</h3>
+              <p>
+                Neural networks achieved major improvements in image recognition,
+                speech processing, medical imaging, and autonomous systems.
+              </p>
+              <div class="timeline-meta">Industries: Healthcare and Automotive</div>
+            </div>
+          </article>
 
-</div>
-</section>
+          <article class="timeline-item" data-aos="fade-left">
+            <div class="timeline-dot">2015–20</div>
+            <div class="timeline-content">
+              <h3>Cloud AI and Intelligent Automation</h3>
+              <p>
+                Cloud platforms made AI services more accessible and accelerated
+                chatbots, predictive maintenance, and process automation.
+              </p>
+              <div class="timeline-meta">Industries: Finance, Supply Chain, and Manufacturing</div>
+            </div>
+          </article>
 
-<section id="ai-timeline">
-<h2 class="section-title">Evolution of Artificial Intelligence Across Industries</h2>
+          <article class="timeline-item" data-aos="fade-left">
+            <div class="timeline-dot">2020–23</div>
+            <div class="timeline-content">
+              <h3>Generative AI</h3>
+              <p>
+                Foundation models expanded AI from prediction into content generation,
+                coding assistance, summarization, knowledge support, and conversation.
+              </p>
+              <div class="timeline-meta">Applications: Content, productivity, education, and service</div>
+            </div>
+          </article>
 
-<div class="timeline">
+          <article class="timeline-item" data-aos="fade-left">
+            <div class="timeline-dot">2024+</div>
+            <div class="timeline-content">
+              <h3>Responsible and Agentic AI</h3>
+              <p>
+                Current development emphasizes multimodal systems, AI agents,
+                governance, transparency, security, and responsible human oversight.
+              </p>
+              <div class="timeline-meta">Focus: Enterprise integration and trustworthy adoption</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<div class="timeline-container left">
-<div class="timeline-content">
-<h3>1950s - 1960s</h3>
-<p><strong>Birth of AI and Symbolic Reasoning</strong></p>
-<p>Academic and defense research introduced intelligent computing concepts.</p>
-</div>
-</div>
+    <section class="section section-alt" id="projects" data-aos="fade-up">
+      <div class="container">
+        <div class="section-heading">
+          <span class="kicker">Portfolio Work</span>
+          <h2>Featured Projects</h2>
+        </div>
 
-<div class="timeline-container right">
-<div class="timeline-content">
-<h3>1970s - 1980s</h3>
-<p><strong>Expert Systems</strong></p>
-<p>Healthcare and manufacturing adopted decision support systems.</p>
-</div>
-</div>
+        <div class="cards">
+          <article class="card" data-aos="zoom-in-up">
+            <div class="card-icon"><i class="fa-solid fa-hospital"></i></div>
+            <h3>Healthcare Data Modernization</h3>
+            <p>Cloud-based data platform for healthcare analytics and reporting.</p>
+          </article>
 
-<div class="timeline-container left">
-<div class="timeline-content">
-<h3>1990s</h3>
-<p><strong>Machine Learning</strong></p>
-<p>Banking and retail leveraged predictive analytics and fraud detection.</p>
-</div>
-</div>
+          <article class="card" data-aos="zoom-in-up">
+            <div class="card-icon"><i class="fa-solid fa-truck-fast"></i></div>
+            <h3>Supply Chain Analytics</h3>
+            <p>Interactive dashboards improving inventory visibility and forecasting.</p>
+          </article>
 
-<div class="timeline-container right">
-<div class="timeline-content">
-<h3>2000s</h3>
-<p><strong>Big Data and Analytics</strong></p>
-<p>E-commerce transformed customer experiences using data insights.</p>
-</div>
-</div>
+          <article class="card" data-aos="zoom-in-up">
+            <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3>AI Data Quality Framework</h3>
+            <p>Automated data quality, monitoring, and governance solutions.</p>
+          </article>
 
-<div class="timeline-container left">
-<div class="timeline-content">
-<h3>2010 - 2015</h3>
-<p><strong>Deep Learning Revolution</strong></p>
-<p>Medical imaging and autonomous driving accelerated AI adoption.</p>
-</div>
-</div>
+          <article class="card" data-aos="zoom-in-up">
+            <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
+            <h3>AI Speaker Recommendation Bot</h3>
+            <p>
+              An interactive AI project that matches event needs with professional
+              speaker profiles and recommendations.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<div class="timeline-container right">
-<div class="timeline-content">
-<h3>2015 - 2020</h3>
-<p><strong>Cloud AI and Intelligent Automation</strong></p>
-<p>Organizations embraced predictive maintenance and automation.</p>
-</div>
-</div>
 
-<div class="timeline-container left">
-<div class="timeline-content">
-<h3>2020 - 2023</h3>
-<p><strong>Generative AI and Large Language Models</strong></p>
-<p>AI assistants transformed software engineering and content generation.</p>
-</div>
-</div>
+    <section class="section section-alt" id="assessment" data-aos="fade-up">
+      <div class="container">
+        <div class="section-heading">
+          <span class="kicker">Professional Growth Artifact</span>
+          <h2>Leadership &amp; AI Readiness Assessment</h2>
+          <p>
+            A concise reflection on my current leadership strengths and the development
+            priorities guiding my growth as an AI-focused data professional.
+          </p>
+        </div>
 
-<div class="timeline-container right">
-<div class="timeline-content">
-<h3>2024 - Present</h3>
-<p><strong>Agentic AI and Autonomous Systems</strong></p>
-<p>AI agents are enabling intelligent workflow automation.</p>
-</div>
-</div>
+        <div class="assessment-grid">
+          <article class="assessment-card strengths" data-aos="fade-right">
+            <div class="assessment-icon"><i class="fa-solid fa-people-arrows"></i></div>
+            <h3>Leadership Strengths</h3>
+            <ul>
+              <li>
+                Demonstrated strengths in leadership, communication, resilience, and
+                stakeholder collaboration while guiding teams through organizational change.
+              </li>
+              <li>
+                Strong foundation in stakeholder engagement and AI communication, including
+                translating technical ideas into meaningful business value.
+              </li>
+            </ul>
+          </article>
 
-<div class="timeline-container left">
-<div class="timeline-content">
-<h3>2030 and Beyond</h3>
-<p><strong>Artificial General Intelligence (AGI)</strong></p>
-<p>The future of autonomous enterprises and human-AI collaboration.</p>
-</div>
-</div>
+          <article class="assessment-card growth" data-aos="fade-left">
+            <div class="assessment-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+            <h3>AI Leadership Growth Roadmap</h3>
+            <ul>
+              <li>
+                Expanding expertise in AI/ML fundamentals, responsible AI, AI strategy,
+                and project leadership for enterprise transformation.
+              </li>
+              <li>
+                Strengthening change-management frameworks, conflict resolution, risk
+                management, and organizational AI adoption.
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
 
-</div>
-</section>
+    <section class="section" id="artifacts" data-aos="fade-up">
+      <div class="container">
+        <div class="section-heading">
+          <span class="kicker">Project Evidence</span>
+          <h2>AI Speaker Bot Artifacts</h2>
+          <p>
+            The following artifacts document the project journey and communicate the
+            product concept to prospective users.
+          </p>
+        </div>
 
-<section id="industry-ai">
-<h2 class="section-title">How AI is Transforming Industries</h2>
+        <div class="artifact-grid">
+          <article class="artifact-card" data-aos="fade-up">
+            <div class="artifact-image">
+              <img
+                src="assets/Process.png"
+                alt="From Interview to AI Speaker Bot project journey infographic"
+                loading="lazy"
+              />
+            </div>
+            <div class="artifact-copy">
+              <span class="artifact-label">Process Artifact</span>
+              <h3>From Interview to AI Speaker Bot</h3>
+              <p>
+                This infographic presents the complete six-stage workflow: interview,
+                TED Talk introduction, professional profile, bot development,
+                recommendation experience, and final outcome.
+              </p>
+            </div>
+          </article>
 
-<div class="cards">
+          <article class="artifact-card" data-aos="fade-up">
+            <div class="artifact-image">
+              <img
+                src="assets/Marketing.png"
+                alt="The Boyz AI Speaker Bureau marketing infographic"
+                loading="lazy"
+              />
+            </div>
+            <div class="artifact-copy">
+              <span class="artifact-label">Marketing Artifact</span>
+              <h3>The Boyz AI Speaker Bureau</h3>
+              <p>
+                This artifact explains the value proposition, AI matching approach,
+                service benefits, booking process, customer groups, and promotional
+                offerings.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<div class="card">
-<h3>AI in Supply Chain Management</h3>
-<p>
-Artificial Intelligence is automating procurement and bidding processes by
-analyzing supplier proposals, evaluating pricing patterns, and identifying
-optimal sourcing opportunities.
-</p>
+    <section class="section" id="chatbot" data-aos="zoom-in-up">
+      <div class="container">
+        <div class="chatbot-box">
+          <div>
+            <h2>Try the AI Speaker Recommendation Bot</h2>
+            <p>
+              Open the live chatbot and explore speaker recommendations based on event
+              topic, target audience, goals, preferred speaking style, and other event
+              needs.
+            </p>
 
-<p>
-AI-generated recommendations are reviewed by commodity managers and buyers,
-enabling faster decision-making and allowing teams to focus on strategic
-business initiatives rather than repetitive administrative tasks.
-</p>
-</div>
+            <a
+              class="btn primary"
+              href="https://homakesava56.github.io/Tedtalker/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-solid fa-comments"></i>
+              Launch the Chatbot
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
 
-<div class="card">
-<h3>AI in Healthcare Analytics</h3>
-<p>
-Artificial Intelligence is streamlining the collection and integration of
-clinical readings and patient observations into enterprise data marts.
-</p>
+          <div class="bot-icon-large" aria-hidden="true">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<p>
-AI-driven reporting and analytics provide physicians with timely insights,
-helping them evaluate patient conditions and make more informed treatment
-decisions while improving healthcare efficiency.
-</p>
-</div>
+    <section class="section section-alt" id="speaking" data-aos="fade-up">
+      <div class="container">
+        <div class="section-heading">
+          <span class="kicker">Communication & Leadership</span>
+          <h2>Speaking and Leadership</h2>
+        </div>
 
-</div>
-</section>
+        <div class="cards">
+          <article class="card" data-aos="zoom-in-up">
+            <div class="card-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+            <h3>TEDx Speaker</h3>
+            <p>Sharing practical stories about data, analytics, AI, and transformation.</p>
+          </article>
 
-<section id="personal-ai">
-<h2 class="section-title">AI as My Professional Co-Pilot</h2>
+          <article class="card" data-aos="zoom-in-up">
+            <div class="card-icon"><i class="fa-solid fa-people-group"></i></div>
+            <h3>Technology Mentor</h3>
+            <p>Supporting professionals, students, architects, and technology teams.</p>
+          </article>
 
-<div class="cards">
+          <article class="card" data-aos="zoom-in-up">
+            <div class="card-icon"><i class="fa-solid fa-person-chalkboard"></i></div>
+            <h3>Industry Speaker</h3>
+            <p>Speaking on data engineering, analytics, cloud, and responsible AI.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<div class="card">
-<h3>Continuous Learning</h3>
-<ul>
-<li>Generate code snippets in unfamiliar technologies.</li>
-<li>Learn new cloud and AI frameworks faster.</li>
-<li>Analyze and debug complex code efficiently.</li>
-<li>Accelerate proof-of-concepts and innovation.</li>
-</ul>
-</div>
+    <section class="section" id="contact" data-aos="fade-up">
+      <div class="container">
+        <div class="section-heading">
+          <span class="kicker">Professional Network</span>
+          <h2>Let's Connect</h2>
+          <p>Update the placeholder links below with your final contact information.</p>
+        </div>
 
-<div class="card">
-<h3>Productivity & Innovation</h3>
-<ul>
-<li>Generate SQL queries and transformation logic.</li>
-<li>Create technical documentation and presentations.</li>
-<li>Automate repetitive coding tasks.</li>
-<li>Convert business requirements into technical solutions faster.</li>
-<li>Reduce development and research time.</li>
-</ul>
-</div>
+        <div class="card">
+          <ul class="contact-list">
+            <li>
+              <i class="fa-solid fa-envelope"></i>
+              <span>Email: your-email@example.com</span>
+            </li>
+            <li>
+              <i class="fa-brands fa-linkedin"></i>
+              <span>LinkedIn: linkedin.com/in/your-profile</span>
+            </li>
+            <li>
+              <i class="fa-brands fa-github"></i>
+              <span>GitHub: github.com/your-profile</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Location: Chicago, Illinois, USA</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<div class="card">
-<h3>Professional Philosophy</h3>
-<p>
-I view Artificial Intelligence as an intelligent co-pilot that augments my
-capabilities, bridges knowledge gaps, and empowers me to deliver innovative
-solutions with greater speed, quality, and business value.
-</p>
-</div>
+  <footer>
+    © 2026 Karthik Sambandan | Senior Data Engineer | Data Analytics & AI Professional
+  </footer>
 
-</div>
-</section>
+  <a
+    class="floating-chat"
+    href="https://homakesava56.github.io/Tedtalker/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Open the AI Speaker Recommendation Bot"
+    title="Open AI Speaker Bot"
+  >
+    <i class="fa-solid fa-robot"></i>
+  </a>
 
-<section id="speaking">
-<h2 class="section-title">Speaking & Leadership</h2>
-
-<p class="about-text">
-TEDx Speaker, Technology Mentor, and Data Leader passionate about sharing
-knowledge on Data Engineering, Artificial Intelligence, Cloud Transformation,
-and helping organizations become truly data-driven enterprises.
-</p>
-</section>
-
-<section id="contact">
-<h2 class="section-title">Contact</h2>
-
-<div class="contact">
-<p><strong>Email:</strong> your-email@example.com</p>
-<p><strong>LinkedIn:</strong> https://linkedin.com/in/your-profile</p>
-<p><strong>GitHub:</strong> https://github.com/your-profile</p>
-<p><strong>Location:</strong> Chicago, Illinois, USA</p>
-</div>
-</section>
-
-<footer>
-© 2026 Karthik Sambandan | Senior Data Engineer | Data Analytics & AI Professional
-</footer>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 850,
+      once: true,
+      offset: 90,
+      easing: "ease-out-cubic"
+    });
+  </script>
 
 </body>
 </html>
