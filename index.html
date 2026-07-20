@@ -680,6 +680,9 @@
         width: 100%;
       }
     }
+
+/* AI Data Quality Analyzer */
+.analyzer-shell{background:linear-gradient(135deg,#071a33,#172554);color:white;border-radius:28px;padding:clamp(24px,5vw,52px);box-shadow:var(--shadow)}.analyzer-controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:22px 0}.analyzer-controls input{background:white;color:#0f172a;padding:12px;border-radius:10px;max-width:100%}.analyzer-btn{border:0;cursor:pointer}.analyzer-status{color:#bfdbfe}.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:24px 0}.metric-card{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:18px}.metric-card strong{display:block;font-size:1.8rem;color:#5eead4}.quality-bar{height:12px;background:rgba(255,255,255,.14);border-radius:99px;overflow:hidden}.quality-fill{height:100%;width:0;background:linear-gradient(90deg,#14b8a6,#60a5fa);transition:width .5s}.profile-table{width:100%;border-collapse:collapse;background:white;color:#0f172a;border-radius:14px;overflow:hidden;margin-top:20px}.profile-table th,.profile-table td{padding:12px;border-bottom:1px solid #e2e8f0;text-align:left}.profile-table th{background:#dbeafe}.recommendations{margin-top:22px;background:rgba(255,255,255,.08);padding:20px;border-radius:16px}.recommendations ul{padding-left:20px}.table-wrap{overflow-x:auto}
   </style>
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 </head>
@@ -697,6 +700,7 @@
         <a href="#skills">Skills</a>
         <a href="#timeline">AI Timeline</a>
         <a href="#projects">Projects</a>
+        <a href="#analyzer">AI Analyzer</a>
         <a href="#assessment">Assessment</a>
         <a href="#artifacts">Artifacts</a>
         <a href="#chatbot">Chatbot</a>
@@ -955,6 +959,7 @@
       </div>
     </section>
 
+<section class="section" id="analyzer" data-aos="fade-up"><div class="container"><div class="section-heading"><span class="kicker">Interactive AI/ML Artifact</span><h2>AI Data Quality Analyzer</h2><p>Upload a CSV file to identify missing values, duplicate rows, inferred data types, and numeric outliers. Processing happens locally in your browser.</p></div><div class="analyzer-shell"><h3><i class="fa-solid fa-wand-magic-sparkles"></i> Analyze Your Dataset</h3><div class="analyzer-controls"><input id="dqFile" type="file" accept=".csv"><button class="btn primary analyzer-btn" id="dqSample" type="button">Analyze Sample Dataset</button></div><p class="analyzer-status" id="dqStatus">Choose a CSV file or use the sample dataset.</p><div id="dqResults" hidden><div class="metric-grid"><div class="metric-card">Quality Score<strong id="dqScore">0%</strong><div class="quality-bar"><div class="quality-fill" id="dqFill"></div></div></div><div class="metric-card">Rows<strong id="dqRows">0</strong></div><div class="metric-card">Columns<strong id="dqCols">0</strong></div><div class="metric-card">Missing Cells<strong id="dqMissing">0</strong></div><div class="metric-card">Duplicates<strong id="dqDuplicates">0</strong></div></div><div class="table-wrap"><table class="profile-table"><thead><tr><th>Column</th><th>Type</th><th>Missing</th><th>Unique</th><th>Outliers</th></tr></thead><tbody id="dqBody"></tbody></table></div><div class="recommendations"><h3>Automated Recommendations</h3><ul id="dqRecommendations"></ul></div></div></div></div></section>
 
     <section class="section section-alt" id="assessment" data-aos="fade-up">
       <div class="container">
@@ -1162,6 +1167,12 @@
 
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
+
+function parseCSV(t){const rows=[];let r=[],v='',q=false;for(let i=0;i<t.length;i++){const c=t[i],n=t[i+1];if(c==='"'&&q&&n==='"'){v+='"';i++;}else if(c==='"')q=!q;else if(c===','&&!q){r.push(v.trim());v='';}else if((c==='\n'||c==='\r')&&!q){if(c==='\r'&&n==='\n')i++;r.push(v.trim());if(r.some(x=>x!==''))rows.push(r);r=[];v='';}else v+=c;}if(v||r.length){r.push(v.trim());rows.push(r);}return rows;}
+function dqType(vals){const x=vals.filter(Boolean);if(!x.length)return'Empty';if(x.every(v=>!isNaN(Number(v))))return'Numeric';if(x.every(v=>!isNaN(Date.parse(v))&&/[\/\-]/.test(v)))return'Date';if(x.every(v=>/^(true|false|yes|no)$/i.test(v)))return'Boolean';return'Text';}
+function analyzeDQ(rows){const head=rows[0],data=rows.slice(1).filter(r=>r.length);const normalized=data.map(r=>head.map((_,i)=>(r[i]||'').trim()));let missing=0;const seen=new Set(),dupes=[];normalized.forEach(r=>{const k=JSON.stringify(r);if(seen.has(k))dupes.push(k);seen.add(k)});const stats=head.map((name,i)=>{const vals=normalized.map(r=>r[i]||'');const miss=vals.filter(v=>!v).length;missing+=miss;const type=dqType(vals);let out=0;if(type==='Numeric'){const nums=vals.filter(Boolean).map(Number).sort((a,b)=>a-b);if(nums.length>3){const q1=nums[Math.floor((nums.length-1)*.25)],q3=nums[Math.floor((nums.length-1)*.75)],iqr=q3-q1;out=nums.filter(n=>n<q1-1.5*iqr||n>q3+1.5*iqr).length;}}return{name:name||'Column '+(i+1),type,miss,unique:new Set(vals.filter(Boolean)).size,out};});const total=Math.max(1,normalized.length*head.length);const score=Math.max(0,Math.round(100-(missing/total*65)-(dupes.length/Math.max(1,normalized.length)*35)));dqScore.textContent=score+'%';dqFill.style.width=score+'%';dqRows.textContent=normalized.length;dqCols.textContent=head.length;dqMissing.textContent=missing;dqDuplicates.textContent=dupes.length;dqBody.innerHTML=stats.map(s=>`<tr><td>${s.name}</td><td>${s.type}</td><td>${s.miss}</td><td>${s.unique}</td><td>${s.out}</td></tr>`).join('');const rec=[];if(missing)rec.push('Review '+missing+' missing cells and choose an appropriate imputation or removal strategy.');if(dupes.length)rec.push('Remove or investigate '+dupes.length+' duplicate records.');if(stats.some(s=>s.out))rec.push('Validate detected numeric outliers against business rules.');if(stats.some(s=>s.type==='Text'&&s.unique===normalized.length))rec.push('Review high-cardinality text columns that may represent identifiers.');if(!rec.length)rec.push('No major quality issues were detected in this sample.');dqRecommendations.innerHTML=rec.map(x=>'<li>'+x+'</li>').join('');dqResults.hidden=false;dqStatus.textContent='Analysis complete.';}
+dqFile.addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;dqStatus.textContent='Analyzing '+f.name+'...';const reader=new FileReader();reader.onload=()=>analyzeDQ(parseCSV(reader.result));reader.onerror=()=>dqStatus.textContent='Unable to read this file.';reader.readAsText(f);});dqSample.addEventListener('click',()=>analyzeDQ(parseCSV('Order_ID,Region,Sales,Order_Date\n1001,East,1250,2026-01-10\n1002,West,980,2026-01-12\n1003,,1500,2026-01-15\n1003,,1500,2026-01-15\n1004,South,45000,2026-01-20\n1005,North,,2026-01-21')));
+
     AOS.init({
       duration: 850,
       once: true,
